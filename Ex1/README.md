@@ -3,7 +3,7 @@
 ### Running command
 ````
 mvn clean install
-mvn exec:java -D"exec.mainClass"="com.nttdata.johnny.ex1.Main"
+mvn exec:java -D"exec.mainClass"="ex1.Main"
 
 ````
 

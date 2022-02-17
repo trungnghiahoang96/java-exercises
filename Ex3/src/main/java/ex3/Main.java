@@ -32,9 +32,11 @@ public class Main {
         Printer printer = new Printer();
 
         // print football team with order
+        System.out.println("Football team order by points before update: ");
         printer.printWithOrder(listOfTeam, SportType.Football);
 
         // print basketball team with order
+        System.out.println("Basketball team order by points before update: ");
         printer.printWithOrder(listOfTeam, SportType.Basketball);
 
 
@@ -43,9 +45,11 @@ public class Main {
         updater.updateFromResultsCSV(listOfTeam, resutlsCSV);
 
         // print football team with new order after update
+        System.out.println("Football team order by points after update: ");
         printer.printWithOrder(listOfTeam, SportType.Football);
 
         // print basketball team with new order after update
+        System.out.println("Basketball team order by points after update: ");
         printer.printWithOrder(listOfTeam, SportType.Basketball);
 
     }
