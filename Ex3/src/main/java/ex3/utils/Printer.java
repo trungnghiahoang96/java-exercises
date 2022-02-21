@@ -9,13 +9,14 @@ import java.util.stream.Collectors;
 
 
 public final class Printer {
-    public void printWithOrder(final List<Team> listOfTeam, final SportType sportType) {
+    public static void printWithOrder(final List<Team> listOfTeam, final SportType sportType) {
 
-        List<Team> sortedTeam = listOfTeam.stream()
+//        List<Team> sortedTeam =
+                listOfTeam.stream()
                 .filter(team -> team.getSportType() == sportType)
                 .sorted(Comparator.comparingInt(Team::getPoints))
-                .collect(Collectors.toList());
+                .forEach(System.out::println);
 
-        System.out.println(sortedTeam);
+//        System.out.println(sortedTeam);
     }
 }

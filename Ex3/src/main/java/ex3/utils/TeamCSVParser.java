@@ -16,7 +16,8 @@ import static java.util.stream.Collectors.toList;
 
 public final class TeamCSVParser {
 
-    public Team parseLine(final String line) {
+
+    public static Team parseLine(final String line) {
         final String[] columns = line.split(",");
 
         final String sportType = columns[0];
@@ -34,9 +35,9 @@ public final class TeamCSVParser {
         return createdTeam;
     }
 
-    public List<Team> parseLinesFromCSV(final Path inputPath) throws IOException {
+    public static List<Team> parseLinesFromCSV(final Path inputPath) throws IOException {
         final List<String> lines = Files.readAllLines(inputPath);
-        return lines.stream().map(this::parseLine).collect(toList());
+        return lines.stream().map(TeamCSVParser::parseLine).collect(toList());
     }
 
 }

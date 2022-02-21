@@ -19,38 +19,36 @@ public class Main {
         String RESOURCES = "src/main/resources/";
 
         Path teamsCSV = Paths.get(RESOURCES + "input/teams.csv");
-        Path resutlsCSV = Paths.get(RESOURCES + "input/results.csv");
+        Path resultsCSV = Paths.get(RESOURCES + "input/results.csv");
 
 
-        TeamCSVParser teamCSVParser = new TeamCSVParser();
 
         // Load teams.csv for creating a list of all team
-        List<Team> listOfTeam = teamCSVParser.parseLinesFromCSV(teamsCSV);
+        List<Team> listOfTeam = TeamCSVParser.parseLinesFromCSV(teamsCSV);
 
 
         // Task 1: print football and basketball team ordering by points
-        Printer printer = new Printer();
 
         // print football team with order
         System.out.println("Football team order by points before update: ");
-        printer.printWithOrder(listOfTeam, SportType.Football);
+        Printer.printWithOrder(listOfTeam, SportType.Football);
 
         // print basketball team with order
         System.out.println("Basketball team order by points before update: ");
-        printer.printWithOrder(listOfTeam, SportType.Basketball);
+        Printer.printWithOrder(listOfTeam, SportType.Basketball);
 
 
         // Task 2: load results.csv file to update result and print
-        Updater updater = new Updater();
-        updater.updateFromResultsCSV(listOfTeam, resutlsCSV);
+
+        List<Team> listOfUpdatedTeam = Updater.updateFromResultsCSV(listOfTeam, resultsCSV);
 
         // print football team with new order after update
         System.out.println("Football team order by points after update: ");
-        printer.printWithOrder(listOfTeam, SportType.Football);
+        Printer.printWithOrder(listOfUpdatedTeam, SportType.Football);
 
         // print basketball team with new order after update
         System.out.println("Basketball team order by points after update: ");
-        printer.printWithOrder(listOfTeam, SportType.Basketball);
+        Printer.printWithOrder(listOfUpdatedTeam, SportType.Basketball);
 
     }
 }
